@@ -25,17 +25,17 @@ compinit
 bindkey -e
 
 # Don't require typing the 'cd ' to change directory
-setopt autocd
+# setopt autocd
 
 # Prevent commands from entering history when preceded by a space
 setopt hist_ignore_space
 
 # Append commands to history immediately so that they show up in new shells
-# setopt inc_append_history
+setopt inc_append_history
 
 setopt append_history
 # Make history instantly available in sibling shells:
-# setopt share_history
+setopt share_history
 
 # Ignore "# comments" typed or pasted into an interactive shell
 setopt interactivecomments
@@ -227,24 +227,11 @@ alias p=paged-with-color
 # HIST_IGNORE_ALL_DUPS or HIST_EXPIRE_DUPS_FIRST"
 # ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
 
-function yt () {
-  cd ~/Music && youtube-dl --extract-audio --extract-audio -f best $1
-}
-
-# Bump GNU utils up the $PATH
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # FZF:
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.config/zsh/fzf.zsh ] && source ~/.config/zsh/fzf.zsh
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# Homebrew techcrap
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_NO_ANALYTICS=1
-
-# Ruby:
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # Python
 export PYTHONDONTWRITEBYTECODE=1
