@@ -101,6 +101,7 @@ print-git-branch() {
 setopt promptsubst # needed for \$ evaluation
 # PS1=HOST:PWD:GIT_BRANCH
 PS1="\
+$(print '%{\e[1;31m%}')%(1j.(%j) .)\
 $(print '%{\e[0;36m%}')%d\
 $(print '%{\e[1;31m%}')\$(print-git-branch)\
 $(print '%{\e[0m%}') \
