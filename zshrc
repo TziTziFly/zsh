@@ -203,6 +203,14 @@ paged-with-color() {
 }
 alias p=paged-with-color
 
+
+# Get xclip to actually copy to X clipboard:
+alias xclip="xclip -selection clipboard"
+
+alias rollout="cd ~/code/rollout/ && ! mountpoint ~/spalvis || docker-compose up"
+
+
+
 # # Given a command, use info to read Info document if it exists, otherwise
 # # use man to read the manpage.  This avoids using info's inferior manpage
 # # renderer.
