@@ -235,11 +235,11 @@ alias rollout="cd ~/code/rollout/ && ! mountpoint ~/spalvis || docker-compose up
 # HIST_IGNORE_ALL_DUPS or HIST_EXPIRE_DUPS_FIRST"
 # ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
 
-
 # FZF:
-[ -f ~/.config/zsh/fzf.zsh ] && source ~/.config/zsh/fzf.zsh
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Python
 export PYTHONDONTWRITEBYTECODE=1
+PATH=/home/dave/.poetry/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
