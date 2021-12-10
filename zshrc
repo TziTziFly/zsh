@@ -34,6 +34,7 @@ setopt hist_ignore_space
 setopt inc_append_history
 
 setopt append_history
+
 # Make history instantly available in sibling shells:
 setopt share_history
 
@@ -151,8 +152,6 @@ if [ -f /usr/bin/tmux-resume ]; then
 	alias r=tmux-resume
 fi
 
-alias tree='tree -aF'
-
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -209,7 +208,19 @@ alias p=paged-with-color
 alias xclip="xclip -selection clipboard"
 
 # Shortcut to run rollout project:
-alias rollout="cd ~/code/rollout/ && ! mountpoint ~/spalvis || docker-compose up"
+alias rollout="sudo systemctl start docker && cd ~/code/rollout/ && ! mountpoint /mnt/spalvis || sudo docker compose up"
+
+# Media:
+alias movies="cd /mnt/spalvis/movies"
+alias music="cd /mnt/spalvis/music"
+alias tv="cd /mnt/spalvis/tv"
+
+
+# Echo today/yesterday in YYYY-MM-DD format:
+alias today="date -I"
+alias yesterday='date --date "yesterday" +%Y-%m-%d'
+
+alias emacs="emacs -nw"
 
 # # Given a command, use info to read Info document if it exists, otherwise
 # # use man to read the manpage.  This avoids using info's inferior manpage
@@ -236,10 +247,21 @@ alias rollout="cd ~/code/rollout/ && ! mountpoint ~/spalvis || docker-compose up
 # ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
 
 # FZF:
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Python
 export PYTHONDONTWRITEBYTECODE=1
-PATH=/home/dave/.poetry/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+PATH=$HOME/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
+# Elixir
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+# Rust
+# source $HOME/.cargo/env
+
+#export PATH="$HOME/.poetry/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
